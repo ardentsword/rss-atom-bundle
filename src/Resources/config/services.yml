@@ -8,12 +8,12 @@ services:
         autowire: true
         autoconfigure: true
 
-    guzzle.client:
-        class: GuzzleHttp\Client
+    feedio.http.client:
+        class: Symfony\Component\HttpClient\HttplugClient
 
     feedio.client:
-        class: FeedIo\Adapter\Guzzle\Client
-        arguments: ["@guzzle.client"]
+        class: FeedIo\Adapter\Http\Client
+        arguments: ['@feedio.http.client']
 
     feedio:
         public: true
